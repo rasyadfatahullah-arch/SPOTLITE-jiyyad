@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPOTLITE - by JIYYAD TOOLS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+<div class="logo" onclick="loadHome()">
+<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 14.36c-.16.26-.5.34-.76.18-2.1-1.28-4.74-1.58-7.86-.86-.29.06-.58-.11-.65-.4-.07-.29.11-.58.4-.65 3.42-.78 6.35-.44 8.69.99.26.15.34.49.18.75zm1.23-2.73c-.2.33-.63.43-.96.23-2.4-1.48-6.06-1.9-8.9-1.04-.36.11-.75-.09-.86-.45-.11-.36.09-.75.45-.86 3.24-.98 7.28-.51 10.03 1.19.33.2.43.63.23.96zm.11-2.85c-2.88-1.71-7.63-1.87-10.38-1.03-.42.13-.87-.11-1-.53-.13-.42.11-.87.53-1 3.16-.96 8.4-.78 11.73 1.19.38.23.51.72.28 1.1-.23.38-.72.51-1.1.28z"/></svg>SPOTLITE
+</div>
+<div class="nav active" onclick="loadHome()"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Home</div>
+<div class="nav" onclick="focusSearch()"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>Search</div>
+<div class="nav"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>Library</div>
+<hr>
+<div class="st">Playlist</div>
+<div class="pl">
+<div onclick="searchAndPlay('lofi chill')">Lofi Chill</div>
+<div onclick="searchAndPlay('top hits 2025')">Top Hits 2025</div>
+<div onclick="searchAndPlay('acoustic')">Acoustic</div>
+<div onclick="searchAndPlay('edm party')">EDM Party</div>
+</div>
+</aside>
+<main class="main">
+<div class="top">
+<div class="sb">
+<svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+<input type="text" id="searchInput" placeholder="Mau dengerin apa?" autocomplete="off">
+</div>
+<div class="badge">by JIYYAD TOOLS</div>
+</div>
+<div id="content"><div class="empty">Memuat...</div></div>
+</main>
+</div>
+<div class="lyrPanel" id="lyrPanel">
+<div class="lyrClose" onclick="toggleLyrics()"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></div>
+<div class="lyrTtl" id="lyrTtl">-</div>
+<div class="lyrArt" id="lyrArt">-</div>
+<div class="lyrBody" id="lyrBody"><div class="empty">Putar lagu untuk lirik.</div></div>
+</div>
+<div class="player">
+<div class="plft">
+<img id="pImg" src="" alt="">
+<div class="pinfo"><div class="pt" id="pTtl">-</div><div class="pa" id="pArt">-</div></div>
+</div>
+<div class="pmid">
+<div class="pctrl">
+<button class="cb" onclick="prev()"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg></button>
+<button class="cb pp" onclick="togglePlay()">
+<svg id="iPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+<svg id="iPause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+</button>
+<button class="cb" onclick="next()"><svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg></button>
+</div>
+<div class="pbar">
+<span id="cTime">0:00</span>
+<div class="pbarBg" onclick="seek(event)"><div class="pbarFill" id="pFill"></div></div>
+<span id="tTime">0:00</span>
+</div>
+</div>
+<div class="prgt">
+<button class="lyrBtn" onclick="toggleLyrics()"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>Lyrics</button>
+</div>
+</div>
+<div id="yt" style="position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;opacity:0"></div>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="script.js"></script>
+</body>
+</html>
